@@ -45,11 +45,18 @@ int main() {
     dfs(m, n, mapper, mark, step, x, y, 1);
     
     int result = 0;
-    std::for_each(mark.begin(), mark.end(), [&](const std::vector<int>& col) -> void {
-        std::for_each(col.begin(), col.end(), [&](const int elem) -> void {
-            result = std::max<int>(result, elem);
-        });
-    });
+    
+    for (int i = 0; i < m; i++) for (int j = 0; j < n; j++) {
+        if (mapper[i][j] != 'X') {
+            if (mark[i][j] == 0) {
+                result = 0;
+                break;
+            }
+            else {
+                result = std::max<int>(result, mark[i][j]);
+            }
+        }
+    }
     
     std::cout << result - 1 << std::endl;
     return 0;

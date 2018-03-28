@@ -19,7 +19,7 @@ int main() {
     }
 
 
-    std::cout << result << std::endl;
+    std::cout << result - 2 << std::endl;
 
     return 0;
 }
